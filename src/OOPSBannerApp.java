@@ -1,31 +1,29 @@
 /**
- * OOPSBannerApp UC4 – Render OOPS as Banner using String Array and Loop
+ * OOPSBannerApp UC5 – Render OOPS as Banner using Inline Array Initialization
  *
- * This use case improves upon UC3 by storing the banner lines in a String array
- * and printing them using a for-each loop. This enhances readability and avoids
- * repetitive print statements.
+ * This use case extends UC4 by defining and populating the String array
+ * inline at the time of declaration using String.join(), improving
+ * readability and reducing repetitive string concatenation.
  *
- * @author Developer
- * @version 4.0
+ * @author Adithya
+ * @version 5.0
  */
 public class OOPSBannerApp {
 
-    // Main method – entry point of the application
     public static void main(String[] args) {
 
-        // Define String array to hold the OOPS banner lines
-        // Each element represents one row of the banner
+        // Define and initialize banner lines inline using String.join()
         String[] lines = {
-                "   ***     ***   *****   ***** ",
-                " **   ** **   ** **  ** **     ",
-                " **   ** **   ** **  ** **     ",
-                " **   ** **   ** *****   ****  ",
-                " **   ** **   ** **         ** ",
-                " **   ** **   ** **         ** ",
-                "   ***     ***   **     *****  "
+                String.join(" ", "  ***  ", "  ***  ", "***** ", " *****"),
+                String.join(" ", "**   **", "**   **", "**  **", "**    "),
+                String.join(" ", "**   **", "**   **", "**  **", "**    "),
+                String.join(" ", "**   **", "**   **", "***** ", " **** "),
+                String.join(" ", "**   **", "**   **", "**    ", "    **"),
+                String.join(" ", "**   **", "**   **", "**    ", "    **"),
+                String.join(" ", "  ***  ", "  ***  ", "**    ", "***** ")
         };
 
-        // Print each line of the banner using a for-each loop
+        // Print the banner line by line
         for (String line : lines) {
             System.out.println(line);
         }
