@@ -1,31 +1,69 @@
 /**
- * OOPSBannerApp UC5 – Render OOPS as Banner using Inline Array Initialization
+ * OOPSBannerApp UC6 – Render OOPS as Banner using Functions
  *
- * This use case extends UC4 by defining and populating the String array
- * inline at the time of declaration using String.join(), improving
- * readability and reducing repetitive string concatenation.
+ * This use case refactors the banner creation logic into
+ * reusable static methods for each character pattern.
+ * It follows the DRY principle and improves modularity.
  *
- * @author Adithya
- * @version 5.0
+ * @author Developer
+ * @version 6.0
  */
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // Define and initialize banner lines inline using String.join()
-        String[] lines = {
-                String.join(" ", "  ***  ", "  ***  ", "***** ", " *****"),
-                String.join(" ", "**   **", "**   **", "**  **", "**    "),
-                String.join(" ", "**   **", "**   **", "**  **", "**    "),
-                String.join(" ", "**   **", "**   **", "***** ", " **** "),
-                String.join(" ", "**   **", "**   **", "**    ", "    **"),
-                String.join(" ", "**   **", "**   **", "**    ", "    **"),
-                String.join(" ", "  ***  ", "  ***  ", "**    ", "***** ")
-        };
+        // Retrieve character patterns using helper methods
+        String[] oPattern = getOPattern();
+        String[] pPattern = getPPattern();
+        String[] sPattern = getSPattern();
 
-        // Print the banner line by line
-        for (String line : lines) {
-            System.out.println(line);
+        // Print the OOPS banner line by line
+        for (int i = 0; i < oPattern.length; i++) {
+            System.out.println(
+                    oPattern[i] + " " +
+                            oPattern[i] + " " +
+                            pPattern[i] + " " +
+                            sPattern[i]
+            );
         }
+    }
+
+    // Helper method to build pattern for character 'O'
+    private static String[] getOPattern() {
+        return new String[]{
+                "  ***  ",
+                "**   **",
+                "**   **",
+                "**   **",
+                "**   **",
+                "**   **",
+                "  ***  "
+        };
+    }
+
+    // Helper method to build pattern for character 'P'
+    private static String[] getPPattern() {
+        return new String[]{
+                "***** ",
+                "**  **",
+                "**  **",
+                "***** ",
+                "**    ",
+                "**    ",
+                "**    "
+        };
+    }
+
+    // Helper method to build pattern for character 'S'
+    private static String[] getSPattern() {
+        return new String[]{
+                " *****",
+                "**    ",
+                "**    ",
+                " **** ",
+                "    **",
+                "    **",
+                "***** "
+        };
     }
 }
